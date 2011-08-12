@@ -337,7 +337,7 @@ def rcov_load_aggregate_data(file)
   require 'zlib'
   begin
     old_data = nil
-    Zlib::GzipReader.open(file){|gz| old_data = Marshal.load(gz) }
+    Zlib::GzipReader.open(file){|gz| old_data = Marshal.load(gz.read) }
   rescue
     old_data = {}
   end
